@@ -220,6 +220,11 @@ body>h1 {
     max-width: 128px;
 }
 
+.project-image {
+    max-width: 320px;
+    max-height: 320px;
+}
+
 /* CSS loader */
 
 .lds-facebook {
