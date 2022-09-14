@@ -140,6 +140,10 @@ body>h1 {
     margin-bottom: 1rem;
 }
 
+small {
+    font-size: 1rem;
+}
+
 .social-links {
     display: flex;
     flex-direction: row;
