@@ -3,3 +3,7 @@
 
 https://illixion.pages.dev/*
   X-Robots-Tag: noindex
+
+/ssh.keys
+  Content-Type: text/plain
+  Content-Disposition: inline; filename="ssh.keys"
