@@ -229,6 +229,31 @@ small {
     max-height: 320px;
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+footer p {
+  margin: 0.5rem;
+}
+
+#botparking {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10rem;
+    pointer-events: none;
+}
+
+#botparking > span {
+    pointer-events: initial;
+}
+
 /* CSS loader */
 
 .lds-facebook {

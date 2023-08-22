@@ -28,6 +28,10 @@
     <meta property="og:image:alt" content="illixion's arts">
     <meta property="og:image:type" content="image/png">
 
+    <!-- Helper Bot -->
+    <link rel="stylesheet" href="css/owo.css" />
+    <script async src="js/owo.js"></script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNFQ0P4WEB"></script>
     <script>
@@ -60,11 +64,14 @@
 </head>
 
 <body>
-    <a href="/">
-        <div class="header-image">
-            <img src="images/illixion.jpg" alt="illixion" />
-        </div>
-    </a>
+    <div class="header-image">
+        <img src="images/illixion.jpg" alt="Ixion" usemap="#header-map" />
+    </div>
+    <map name="header-map">
+        <area shape="default" href="/" alt="illixion, link to home page" data-owo-desc="So boopable!">
+        <area shape="poly" coords="332, 209, 343, 242, 319, 274, 262, 264, 297, 213"
+            onclick="owo.spawnFriend()" alt="Ixion's nose, clickable">
+    </map>
     <h1>Ixion</h1>
     <small>@illixion</small>
     <br>
@@ -72,49 +79,57 @@
         <section class="about-me">
             <h2>Arts</h2>
             <p>You'll find my character's commissioned artwork here.</p>
-            <p style="font-weight: bold;"><a href="images/arts/Ixion refsheet v5.png">Reference sheet can be found here</a></p>
+            <p style="font-weight: bold;"><a href="images/arts/Ixion refsheet v5.png"
+                    data-owo-desc="He may have advanced high-frequency antennas, but I'm happy being orb!">Reference
+                    sheet can be found here</a></p>
         </section>
         <section class="projects">
             <!-- list of links with images next to them -->
             <ul>
                 <li>
                     <a href="images/arts/Synthpara Ixion.png" alt="Synthpara Ixion"><img
-                            src="images/arts/t/Synthpara Ixion.jpg" alt="Synthpara Ixion" class="project-image" /></a>
+                            src="images/arts/t/Synthpara Ixion.jpg" alt="Synthpara Ixion" class="project-image"
+                            data-owo-desc="I wanna live in whatever city this is, such a nice view!" /></a>
                     <a href="https://twitter.com/Synthpara">
                         <p>by Paraa</p>
                     </a>
                 </li>
                 <li>
                     <a href="images/arts/Volcanins Ixion.png" alt="Volcanins Ixion"><img
-                            src="images/arts/t/Volcanins Ixion.jpg" alt="Volcanins Ixion" class="project-image" /></a>
+                            src="images/arts/t/Volcanins Ixion.jpg" alt="Volcanins Ixion" class="project-image"
+                            data-owo-desc="That sword looks dangerous, but it can also serve as a snack in a pinch!" /></a>
                     <a href="https://www.furaffinity.net/user/volcanins/">
                         <p>by Volcanins</p>
                     </a>
                 </li>
                 <li>
                     <a href="images/arts/nursesenpai Ixion.png" alt="nursesenpai Ixion"><img
-                            src="images/arts/t/nursesenpai Ixion.jpg" alt="nursesenpai Ixion" class="project-image" /></a>
+                            src="images/arts/t/nursesenpai Ixion.jpg" alt="nursesenpai Ixion" class="project-image"
+                            data-owo-desc="So pretty!" /></a>
                     <a href="https://twitter.com/nursesenpai">
                         <p>by nursesenpai</p>
                     </a>
                 </li>
                 <li>
                     <a href="images/arts/BelaOrdas Ixion.png" alt="BelaOrdas Ixion"><img
-                            src="images/arts/t/BelaOrdas Ixion.jpg" alt="BelaOrdas Ixion" class="project-image" /></a>
+                            src="images/arts/t/BelaOrdas Ixion.jpg" alt="BelaOrdas Ixion" class="project-image"
+                            data-owo-desc="So cute! *overheats CPU*" /></a>
                     <a href="https://twitter.com/BelaOrdas">
                         <p>by BelaOrdas</p>
                     </a>
                 </li>
                 <li>
                     <a href="images/arts/NeoYin boardgames.png" alt="NeoYin boardgames"><img
-                            src="images/arts/t/NeoYin boardgames.jpg" alt="NeoYin boardgames" class="project-image" /></a>
+                            src="images/arts/t/NeoYin boardgames.jpg" alt="NeoYin boardgames" class="project-image"
+                            data-owo-desc="Woah, is that Nemesis they're playing? I love that game!" /></a>
                     <a href="https://twitter.com/Neoyin3">
                         <p>by NeoYin</p>
                     </a>
                 </li>
                 <li>
                     <a href="images/arts/Shiuk Ixion.png" alt="Shiuk Ixion"><img src="images/arts/t/Shiuk Ixion.jpg"
-                            alt="Shiuk Ixion" class="project-image" /></a>
+                            alt="Shiuk Ixion" class="project-image"
+                            data-owo-desc="I sure hope they don't turn me into an oversimplified logo! Oh wait..." /></a>
                     <a href="https://twitter.com/Shiuk">
                         <p>by Shiuk</p>
                     </a>
@@ -124,7 +139,8 @@
                 </li>
                 <li>
                     <a href="images/arts/Synthpara Ixion no DoF.png" alt="Synthpara Ixion no DoF"><img
-                            src="images/arts/t/Synthpara Ixion no DoF.jpg" alt="Synthpara Ixion no DoF" class="project-image" /></a>
+                            src="images/arts/t/Synthpara Ixion no DoF.jpg" alt="Synthpara Ixion no DoF"
+                            class="project-image" data-owo-desc="That city looks even better now!" /></a>
                     <a href="https://twitter.com/Synthpara">
                         <p>by Paraa (no DoF)</p>
                     </a>
@@ -132,21 +148,22 @@
                 <li>
                     <a href="images/arts/nursesenpai Ixion Transparent.png"><img
                             src="images/arts/nursesenpai Ixion Transparent.png" alt="nursesenpai Ixion Transparent"
-                            class="project-image" /></a>
+                            class="project-image" data-owo-desc="Oh, so that's where the site icon came from!" /></a>
                     <a href="https://twitter.com/nursesenpai">
                         <p>by nursesenpai (transparent)</p>
                     </a>
                 </li>
                 <li>
                     <a href="images/arts/Shiuk Ixion Outline.png"><img src="images/arts/Shiuk Ixion Outline.png"
-                            alt="Shiuk Ixion Outline" class="project-image" /></a>
+                            alt="Shiuk Ixion Outline" class="project-image"
+                            data-owo-desc="You can print this as a sticker!" /></a>
                     <a href="https://twitter.com/Shiuk">
                         <p>by Shiuk (transparent)</p>
                     </a>
                 </li>
                 <li>
                     <a href="images/arts/Shiuk Ixion Transparent.png"><img src="images/arts/Shiuk Ixion Transparent.png"
-                            alt="Shiuk Ixion Transparent" class="project-image" /></a>
+                            alt="Shiuk Ixion Transparent" class="project-image" data-owo-desc="Flat friend!" /></a>
                     <a href="https://twitter.com/Shiuk">
                         <p>by Shiuk (transparent)</p>
                     </a>
@@ -159,6 +176,12 @@
             </h4>
         </section>
     </main>
+    <footer>
+        <p>© 2023 illixion</p>
+        <p>Helper bot made by <a href="https://dragoncla.ws/" data-owo-desc="Greenie!">Arimah</a></p>
+    </footer>
+
+    <div id="botparking"><span></span></div>
 </body>
 
 </html>

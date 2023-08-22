@@ -29,6 +29,10 @@
     <meta property="og:image:alt" content="illixion's website">
     <meta property="og:image:type" content="image/png">
 
+    <!-- Helper Bot -->
+    <link rel="stylesheet" href="css/owo.css" />
+    <script async src="js/owo.js"></script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNFQ0P4WEB"></script>
     <script>
@@ -41,27 +45,35 @@
 </head>
 
 <body>
-    <a href="/">
-        <div class="header-image">
-            <img src="images/illixion.jpg" alt="illixion" />
-        </div>
-    </a>
+    <div class="header-image">
+        <img src="images/illixion.jpg" alt="Ixion" usemap="#header-map" />
+    </div>
+    <map name="header-map">
+        <area shape="default" href="/" alt="illixion, link to home page" data-owo-desc="So boopable!">
+        <area shape="poly" coords="332, 209, 343, 242, 319, 274, 262, 264, 297, 213"
+            onclick="owo.spawnFriend()" alt="Ixion's nose, clickable">
+    </map>
     <h1>Ixion</h1>
     <small>@illixion</small>
     <br>
     <main>
         <section class="social-links">
-            <a rel="me" href="https://synth.zip/users/ixion" title="Mastodon"><img src="images/mastodon.svg"
-                    alt="Mastodon" /></a>
-            <a href="https://twitter.com/illixion/" title="Obsolete social media platform &quot;X&quot;"><img
-                    src="images/x.svg" alt="Obsolete social media platform &quot;X&quot;" /></a>
-            <a href="https://www.github.com/illixion/" title="GitHub"><img src="images/github.svg" alt="GitHub" /></a>
-            <a href="https://ko-fi.com/illixion" title="Ko-Fi"><img src="images/kofi.svg" alt="Ko-Fi" /></a>
-            <a href="https://t.me/illixion" title="Telegram"><img src="images/telegram.svg" alt="Telegram" /></a>
-            <a href="https://www.youtube.com/@illixion" title="YouTube"><img src="images/youtube.svg"
-                    alt="YouTube" /></a>
-            <a href="https://www.flickr.com/people/100352623@N08/" title="Flickr"><img src="images/flickr.svg"
-                    alt="Flickr" /></a>
+            <a rel="me" href="https://synth.zip/users/ixion" title="Mastodon"
+                data-owo-desc="Come beep with us (or at him!)"><img src="images/mastodon.svg" alt="Mastodon" /></a>
+            <a href="https://twitter.com/illixion/" title="Obsolete social media platform &quot;X&quot;"
+                data-owo-desc="Oh, what's this? And where'd the bird go?"><img src="images/x.svg"
+                    alt="Obsolete social media platform &quot;X&quot;" /></a>
+            <a href="https://www.github.com/illixion/" title="GitHub"
+                data-owo-desc="Wow, he sure knows how to talk computer~"><img src="images/github.svg"
+                    alt="GitHub" /></a>
+            <a href="https://ko-fi.com/illixion" title="Ko-Fi"
+                data-owo-desc="Your support is super appreciated! ^_^"><img src="images/kofi.svg" alt="Ko-Fi" /></a>
+            <a href="https://t.me/illixion" title="Telegram" data-owo-desc="Feel free to slide into his DMs~"><img
+                    src="images/telegram.svg" alt="Telegram" /></a>
+            <a href="https://www.youtube.com/@illixion" title="YouTube"
+                data-owo-desc="Subscribe and ring that bell!"><img src="images/youtube.svg" alt="YouTube" /></a>
+            <a href="https://www.flickr.com/people/100352623@N08/" title="Flickr"
+                data-owo-desc="Wow, such pretty photos there~"><img src="images/flickr.svg" alt="Flickr" /></a>
         </section>
         <section class="about-me">
             <h2>About</h2>
@@ -69,7 +81,7 @@
             <p>I'm always working on new projects, follow me on social media of your choice to stay up-to-date!</p>
             <p>You can find artwork of my character here: <a href="arts.html">Arts</a></p>
         </section>
-        <section class="blog-posts">
+        <section class="blog-posts" data-owo-desc="So informative!">
             <h2>Recent blog posts</h2>
             <!-- this section will be populated by a script -->
             <noscript>
@@ -93,15 +105,22 @@
             <h2>Projects</h2>
             <!-- list of links with images next to them -->
             <ul>
-                <li>
-                    <h3><a href="https://blog.illixion.com">blog.illixion.com</a></h3>
+                <li data-owo-desc="It's full of pretty Synths! Revolutionary!">
+                    <img src="images/synthzip.png" alt="Synth.zip" class="project-logo" />
+                    <h3><a href="https://synth.zip" class="propaganda-no-mangle">Synth.zip</a></h3>
+                    <p>synth.zip is a Mastodon by and for the <a href="https://synthspecies.com">synth species</a>
+                        community, as well as the wider furry and LGBTIQA+ communities. Anyone 18+ is welcome to join!
+                    </p>
+                </li>
+                <li data-owo-desc="Oh my, so much to read!">
+                    <h3><a href="https://blog.illixion.com" class="propaganda-no-mangle">blog.illixion.com</a></h3>
                     <p>Technology-related blog that I semi-regularly update. It's mostly a personal notepad that I go
                         back to if I need something, but I also share the knowledge within it with the rest of the
                         world. You can see some of the posts above.</p>
                     <p>Subscribe to the <a href="https://blog.illixion.com/index.xml">RSS feed</a> to stay up-to-date!
                     </p>
                 </li>
-                <li>
+                <li data-owo-desc="I can't wear T-shirts, but they did look really nice!">
                     <img src="images/kataprints.png" alt="Kataprints" class="project-logo" />
                     <p>[archived] Kataprints was an online furry clothing and accessory store based in Riga, Latvia.
                         Purchases support
@@ -112,6 +131,12 @@
             </ul>
         </section>
     </main>
+    <footer>
+        <p>© 2023 illixion</p>
+        <p>Helper bot made by <a href="https://dragoncla.ws/" data-owo-desc="Greenie!">Arimah</a></p>
+    </footer>
+
+    <div id="botparking"><span></span></div>
 </body>
 
 </html>
