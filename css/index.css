@@ -155,12 +155,11 @@ small {
 }
 
 .social-links>a>img {
-    width: 3.3rem;
     height: 3.3rem;
     margin: 0.5rem;
 }
 
-.social-links>a:hover>img {
+.social-links>a:hover {
     transform: scale(1.1);
 }
 
