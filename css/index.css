@@ -229,6 +229,12 @@ small {
     max-height: 320px;
 }
 
+section.sponsors > iframe {
+    height: 225px;
+    border: 0;
+    width: 98%;
+}
+
 footer {
     display: flex;
     flex-direction: column;
