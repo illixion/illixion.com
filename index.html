@@ -10,12 +10,9 @@
     <!-- preloads -->
     <link rel="preload" href="css/index.css" as="style" />
     <link rel="preload" href="js/index.js" as="script" />
-    <link rel="preload" href="css/owo.min.css" as="style" />
-    <link rel="preload" href="js/owo.min.js" as="script" />
 
     <!-- CSS/JS -->
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/owo.min.css" />
     <script src="js/index.js"></script>
 
     <!-- Color theme for statusbar -->
@@ -47,6 +44,13 @@
 
         gtag('config', 'G-KNFQ0P4WEB');
     </script>
+
+    <script>
+        function playAudio() {
+            var audio = new Audio('/audio/partyfavorraspypart_ac01_3.mp3');
+            audio.play();
+        }
+    </script>
 </head>
 
 <body>
@@ -54,8 +58,8 @@
         <img src="images/illixion.jpg" alt="Ixion" usemap="#header-map" />
     </div>
     <map name="header-map">
-        <area shape="default" href="/" alt="illixion, link to home page" data-owo-desc="So boopable!">
-        <area shape="poly" coords="332, 209, 343, 242, 319, 274, 262, 264, 297, 213" onclick="owo.spawnFriend()"
+        <area shape="default" href="/" alt="illixion, link to home page">
+        <area shape="poly" coords="332, 209, 343, 242, 319, 274, 262, 264, 297, 213" onclick="playAudio()"
             alt="Ixion's nose, clickable">
     </map>
     <h1>Ixion</h1>
@@ -63,28 +67,25 @@
     <br>
     <main>
         <section class="social-links">
-            <a rel="me" href="https://synth.zip/users/ixion" title="Mastodon"
-                data-owo-desc="Come beep with us (or at him!)"><img src="images/mastodon.svg" alt="Mastodon" /></a>
-            <a rel="me" href="https://bsky.app/profile/illixion.com" title="Bluesky"
-                data-owo-desc="Come and beep at him!"><img src="images/bluesky.svg"
-                alt="Bluesky" /></a>
-            <a href="https://www.github.com/illixion/" title="GitHub"
-                data-owo-desc="Wow, he sure knows how to talk computer~"><img src="images/github.svg"
-                    alt="GitHub" /></a>
-            <a href="https://t.me/illixion" title="Telegram" data-owo-desc="Feel free to slide into his DMs~"><img
-                    src="images/telegram.svg" alt="Telegram" /></a>
-            <a href="https://www.youtube.com/@illixion" title="YouTube"
-                data-owo-desc="Subscribe and ring that bell!"><img src="images/youtube.svg" alt="YouTube" /></a>
-            <a href="https://www.flickr.com/people/100352623@N08/" title="Flickr"
-                data-owo-desc="Wow, such pretty photos there~"><img src="images/flickr.svg" alt="Flickr" /></a>
+            <a rel="me" href="https://synth.zip/users/ixion" title="Mastodon"><img src="images/mastodon.svg"
+                    alt="Mastodon" /></a>
+            <a rel="me" href="https://bsky.app/profile/illixion.com" title="Bluesky"><img src="images/bluesky.svg"
+                    alt="Bluesky" /></a>
+            <a href="https://www.github.com/illixion/" title="GitHub"><img src="images/github.svg" alt="GitHub" /></a>
+            <a href="https://t.me/illixion" title="Telegram"><img src="images/telegram.svg" alt="Telegram" /></a>
+            <a href="https://www.youtube.com/@illixion" title="YouTube"><img src="images/youtube.svg"
+                    alt="YouTube" /></a>
+            <a href="https://www.flickr.com/people/100352623@N08/" title="Flickr"><img src="images/flickr.svg"
+                    alt="Flickr" /></a>
         </section>
         <section class="about-me">
             <h2>About</h2>
-            <p>Infrastucture engineer for a living, technical writer and FOSS developer on the side, sometimes a photographer.</p>
+            <p>Infrastucture engineer for a living, technical writer and FOSS developer on the side, sometimes a
+                photographer.</p>
             <p>I'm always working on something new, follow me on social media of your choice to stay up-to-date!</p>
             <p>You can find artwork of my character here: <a href="arts.html">Arts</a></p>
         </section>
-        <section class="blog-posts" data-owo-desc="So informative!">
+        <section class="blog-posts">
             <h2>Recent blog posts</h2>
             <!-- this section will be populated by a script -->
             <noscript>
@@ -108,14 +109,14 @@
             <h2>Projects</h2>
             <!-- list of links with images next to them -->
             <ul>
-                <li data-owo-desc="It's full of pretty Synths! Revolutionary!">
+                <li>
                     <img src="images/synthzip.png" alt="Synth.zip" class="project-logo" />
                     <h3><a href="https://synth.zip" class="propaganda-no-mangle">Synth.zip</a></h3>
                     <p>synth.zip is a Mastodon by and for the <a href="https://synthspecies.com">synth species</a>
                         community, as well as the wider furry and LGBTIQA+ communities. Anyone 18+ is welcome to join!
                     </p>
                 </li>
-                <li data-owo-desc="Oh my, so much to read!">
+                <li>
                     <h3><a href="https://blog.illixion.com" class="propaganda-no-mangle">blog.illixion.com</a></h3>
                     <p>Technology-related blog that I semi-regularly update. It's mostly a personal notepad that I go
                         back to if I need something, but I also share the knowledge within it with the rest of the
@@ -123,7 +124,7 @@
                     <p>Subscribe to the <a href="https://blog.illixion.com/index.xml">RSS feed</a> to stay up-to-date!
                     </p>
                 </li>
-                <li data-owo-desc="I can't wear T-shirts, but they did look really nice!">
+                <li>
                     <img src="images/kataprints.png" alt="Kataprints" class="project-logo" />
                     <p>[archived] Kataprints was an online furry clothing and accessory store based in Riga, Latvia.
                         Purchases support
@@ -134,16 +135,12 @@
         </section>
         <section class="sponsors">
             <h2>Sponsors</h2>
-            <iframe src="https://github.com/sponsors/illixion/card" title="Sponsor Ixion" data-owo-desc="Your support is super appreciated! ^_^"></iframe>
+            <iframe src="https://github.com/sponsors/illixion/card" title="Sponsor Ixion"></iframe>
         </section>
     </main>
     <footer>
         <p>© 2024 illixion</p>
-        <p>Helper bot made by <a href="https://dragoncla.ws/" data-owo-desc="Greenie!">Arimah</a></p>
     </footer>
-
-    <div id="botparking"><span></span></div>
-    <script src="js/owo.min.js"></script>
 </body>
 
 </html>
