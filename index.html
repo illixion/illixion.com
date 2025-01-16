@@ -46,8 +46,12 @@
     </script>
 
     <script>
+        var audio;
+
         function playAudio() {
-            var audio = new Audio('/audio/partyfavorraspypart_ac01_3.mp3');
+            if (!audio) {
+                audio = new Audio('/audio/partyfavorraspypart_ac01_3.mp3');
+            }
             audio.play();
         }
     </script>
@@ -112,8 +116,9 @@
                 <li>
                     <img src="images/synthzip.png" alt="Synth.zip" class="project-logo" />
                     <h3><a href="https://synth.zip" class="propaganda-no-mangle">Synth.zip</a></h3>
-                    <p>synth.zip is a Mastodon by and for the <a href="https://synthspecies.com">synth species</a>
-                        community, as well as the wider furry and LGBTIQA+ communities. Anyone 18+ is welcome to join!
+                    <p>synth.zip is a Mastodon server by and for the <a href="https://synthspecies.com">synth
+                            species</a>
+                        community, as well as the wider furry and LGBTIQA+ communities.
                     </p>
                 </li>
                 <li>
@@ -127,9 +132,10 @@
                 <li>
                     <img src="images/kataprints.png" alt="Kataprints" class="project-logo" />
                     <p>[archived] Kataprints was an online furry clothing and accessory store based in Riga, Latvia.
-                        Purchases support
-                        artists directly, products ship worldwide and you get high-quality items in return. I was
-                        responsible for creating and maintaining the website, as well as PR and marketing.</p>
+                        Purchases would support
+                        artists directly, products would ship worldwide and you'd get high-quality items in return. I
+                        was
+                        responsible for all technical aspects of maintaining this WooCommerce website.</p>
                 </li>
             </ul>
         </section>

@@ -64,8 +64,12 @@
     </style>
 
     <script>
+        var audio;
+
         function playAudio() {
-            var audio = new Audio('/audio/partyfavorraspypart_ac01_3.mp3');
+            if (!audio) {
+                audio = new Audio('/audio/partyfavorraspypart_ac01_3.mp3');
+            }
             audio.play();
         }
     </script>
