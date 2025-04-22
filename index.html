@@ -93,17 +93,31 @@
             <h2>Recent blog posts</h2>
             <!-- this section will be populated by a script -->
             <noscript>
-                <p>Cannot load recent posts without JavaScript.</p>
+                <p style="color: red;">JavaScript is disabled in your browser. Please enable it to see the blog posts.</p>
             </noscript>
 
-            <!-- loader CSS -->
-            <div id="blog-post-loader" class="lds-facebook">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-
-            <span id="blog-post-list"></span>
+            <span id="blog-post-list">
+                <div class="placeholder-post">
+                    <div class="placeholder-title"></div>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line short"></div>
+                </div>
+                <div class="placeholder-post">
+                    <div class="placeholder-title"></div>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line short"></div>
+                </div>            
+                <div class="placeholder-post">
+                    <div class="placeholder-title"></div>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line short"></div>
+                </div>            
+                <div class="placeholder-post">
+                    <div class="placeholder-title"></div>
+                    <div class="placeholder-line"></div>
+                    <div class="placeholder-line short"></div>
+                </div>            
+            </span>
 
             <h4>
                 <a id="show-more-link">Show more</a>

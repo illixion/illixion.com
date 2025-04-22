@@ -37,8 +37,11 @@ fetch('https://blog.illixion.com/searchindex.json')
     createBlogPosts(data.posts.slice(0, 4));
   })
   .finally(() => {
-    // remove the loading spinner
-    document.getElementById('blog-post-loader').remove();
+    // clear all placeholder posts
+    const placeholderPosts = document.querySelectorAll('.placeholder-post');
+    placeholderPosts.forEach((post) => {
+      post.remove();
+    });
   })
   .catch((error) => {
     console.log(error);
