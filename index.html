@@ -12,6 +12,7 @@
     <link rel="preload" href="js/index.js" as="script" />
 
     <!-- CSS/JS -->
+    <link rel="stylesheet" href="liquid-glass-example/glass-style.css" />
     <link rel="stylesheet" href="css/index.css" />
     <script src="js/index.js"></script>
 
@@ -58,106 +59,70 @@
 </head>
 
 <body>
-    <div class="header-image">
-        <img src="images/illixion.jpg" alt="Ixion" usemap="#header-map" />
+    <div class="container one-column">
+        <div class="glass">
+            <div class="header-image">
+                <img src="images/illixion.jpg" alt="Ixion" usemap="#header-map" />
+            </div>
+            <map name="header-map">
+                <area shape="default" href="/" alt="illixion, link to home page">
+                <area shape="poly" coords="332,209,343,242,319,274,262,264,297,213" onclick="playAudio()" alt="Ixion's nose, clickable">
+            </map>
+            <h1 style="text-align:center;">Ixion</h1>
+            <div style="text-align:center;"><small>@illixion</small></div>
+        </div>
+        <div class="glass">
+            <section class="social-links">
+                <a rel="me" href="https://synth.zip/users/ixion" title="Mastodon"><img src="images/mastodon.svg" alt="Mastodon" /></a>
+                <a rel="me" href="https://bsky.app/profile/illixion.com" title="Bluesky"><img src="images/bluesky.svg" alt="Bluesky" /></a>
+                <a href="https://www.github.com/illixion/" title="GitHub"><img src="images/github.svg" alt="GitHub" /></a>
+                <a href="https://t.me/illixion" title="Telegram"><img src="images/telegram.svg" alt="Telegram" /></a>
+                <a href="https://www.youtube.com/@illixion" title="YouTube"><img src="images/youtube.svg" alt="YouTube" /></a>
+                <a href="https://www.flickr.com/people/100352623@N08/" title="Flickr"><img src="images/flickr.svg" alt="Flickr" /></a>
+            </section>
+        </div>
+        <div class="glass">
+            <section class="about-me">
+                <h2>About</h2>
+                <p>Infrastructure engineer for a living, technical writer and FOSS developer on the side, sometimes a photographer.</p>
+                <p>I'm always working on something new, follow me on social media of your choice to stay up-to-date!</p>
+                <p>You can find artwork of my character here: <a href="arts.html">Arts</a></p>
+            </section>
+        </div>
+        <div class="glass">
+            <section class="blog-posts">
+                <h2>Recent blog posts</h2>
+                <noscript>
+                    <p style="color: red;">JavaScript is disabled in your browser. Please enable it to see the blog posts.</p>
+                </noscript>
+                <span id="blog-post-list">
+                    <div class="placeholder-post"><div class="placeholder-title"></div><div class="placeholder-line"></div><div class="placeholder-line short"></div></div>
+                    <div class="placeholder-post"><div class="placeholder-title"></div><div class="placeholder-line"></div><div class="placeholder-line short"></div></div>
+                    <div class="placeholder-post"><div class="placeholder-title"></div><div class="placeholder-line"></div><div class="placeholder-line short"></div></div>
+                    <div class="placeholder-post"><div class="placeholder-title"></div><div class="placeholder-line"></div><div class="placeholder-line short"></div></div>
+                </span>
+                <h4><a id="show-more-link">Show more</a></h4>
+            </section>
+        </div>
+        <div class="glass">
+            <section class="projects">
+                <h2>Projects</h2>
+                <ul>
+                    <li><img src="images/synthzip.png" alt="Synth.zip" class="project-logo" /><h3><a href="https://synth.zip">Synth.zip</a></h3><p>synth.zip is an open community-oriented Mastodon server using Pleroma as the backend.</p></li>
+                    <li><h3><a href="https://blog.illixion.com">blog.illixion.com</a></h3><p>Technology-related blog that I semi-regularly update. It's mostly a personal notepad that I go back to if I need something, but I also share the knowledge within it with the rest of the world. You can see some of the posts above.</p><p>Subscribe to the <a href="https://blog.illixion.com/index.xml">RSS feed</a> to stay up-to-date!</p></li>
+                    <li><img src="images/kataprints.png" alt="Kataprints" class="project-logo" /><p>[archived] Kataprints was an online clothing and accessory store based in Riga, Latvia. Purchases would support artists directly, products would ship worldwide and you'd get high-quality items in return. I was responsible for all technical aspects of maintaining the website.</p></li>
+                </ul>
+            </section>
+        </div>
+        <div class="glass">
+            <section class="sponsors">
+                <h2>Sponsors</h2>
+                <iframe src="https://github.com/sponsors/illixion/card" title="Sponsor Ixion"></iframe>
+            </section>
+        </div>
+        <div class="glass">
+            <footer style="text-align:center;">
+                <p>© 2025 illixion</p>
+            </footer>
+        </div>
     </div>
-    <map name="header-map">
-        <area shape="default" href="/" alt="illixion, link to home page">
-        <area shape="poly" coords="332, 209, 343, 242, 319, 274, 262, 264, 297, 213" onclick="playAudio()"
-            alt="Ixion's nose, clickable">
-    </map>
-    <h1>Ixion</h1>
-    <small>@illixion</small>
-    <br>
-    <main>
-        <section class="social-links">
-            <a rel="me" href="https://synth.zip/users/ixion" title="Mastodon"><img src="images/mastodon.svg"
-                    alt="Mastodon" /></a>
-            <a rel="me" href="https://bsky.app/profile/illixion.com" title="Bluesky"><img src="images/bluesky.svg"
-                    alt="Bluesky" /></a>
-            <a href="https://www.github.com/illixion/" title="GitHub"><img src="images/github.svg" alt="GitHub" /></a>
-            <a href="https://t.me/illixion" title="Telegram"><img src="images/telegram.svg" alt="Telegram" /></a>
-            <a href="https://www.youtube.com/@illixion" title="YouTube"><img src="images/youtube.svg"
-                    alt="YouTube" /></a>
-            <a href="https://www.flickr.com/people/100352623@N08/" title="Flickr"><img src="images/flickr.svg"
-                    alt="Flickr" /></a>
-        </section>
-        <section class="about-me">
-            <h2>About</h2>
-            <p>Infrastructure engineer for a living, technical writer and FOSS developer on the side, sometimes a
-                photographer.</p>
-            <p>I'm always working on something new, follow me on social media of your choice to stay up-to-date!</p>
-            <p>You can find artwork of my character here: <a href="arts.html">Arts</a></p>
-        </section>
-        <section class="blog-posts">
-            <h2>Recent blog posts</h2>
-            <!-- this section will be populated by a script -->
-            <noscript>
-                <p style="color: red;">JavaScript is disabled in your browser. Please enable it to see the blog posts.</p>
-            </noscript>
-
-            <span id="blog-post-list">
-                <div class="placeholder-post">
-                    <div class="placeholder-title"></div>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line short"></div>
-                </div>
-                <div class="placeholder-post">
-                    <div class="placeholder-title"></div>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line short"></div>
-                </div>            
-                <div class="placeholder-post">
-                    <div class="placeholder-title"></div>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line short"></div>
-                </div>            
-                <div class="placeholder-post">
-                    <div class="placeholder-title"></div>
-                    <div class="placeholder-line"></div>
-                    <div class="placeholder-line short"></div>
-                </div>            
-            </span>
-
-            <h4>
-                <a id="show-more-link">Show more</a>
-            </h4>
-        </section>
-        <section class="projects">
-            <h2>Projects</h2>
-            <!-- list of links with images next to them -->
-            <ul>
-                <li>
-                    <img src="images/synthzip.png" alt="Synth.zip" class="project-logo" />
-                    <h3><a href="https://synth.zip">Synth.zip</a></h3>
-                    <p>synth.zip is an open community-oriented Mastodon server using Pleroma as the backend.</p>
-                </li>
-                <li>
-                    <h3><a href="https://blog.illixion.com">blog.illixion.com</a></h3>
-                    <p>Technology-related blog that I semi-regularly update. It's mostly a personal notepad that I go
-                        back to if I need something, but I also share the knowledge within it with the rest of the
-                        world. You can see some of the posts above.</p>
-                    <p>Subscribe to the <a href="https://blog.illixion.com/index.xml">RSS feed</a> to stay up-to-date!
-                    </p>
-                </li>
-                <li>
-                    <img src="images/kataprints.png" alt="Kataprints" class="project-logo" />
-                    <p>[archived] Kataprints was an online clothing and accessory store based in Riga, Latvia.
-                        Purchases would support
-                        artists directly, products would ship worldwide and you'd get high-quality items in return. I
-                        was
-                        responsible for all technical aspects of maintaining the website.</p>
-                </li>
-            </ul>
-        </section>
-        <section class="sponsors">
-            <h2>Sponsors</h2>
-            <iframe src="https://github.com/sponsors/illixion/card" title="Sponsor Ixion"></iframe>
-        </section>
-    </main>
-    <footer>
-        <p>© 2025 illixion</p>
-    </footer>
-</body>
-
-</html>
