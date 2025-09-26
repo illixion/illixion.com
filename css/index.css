@@ -1,7 +1,7 @@
 /* Center-align all section titles and add bottom padding */
 h1, h2, h3, h4 {
     text-align: center;
-    padding-bottom: 0.5em;
+    padding-bottom: 1rem;
 }
 
 h3, h4 {
@@ -63,7 +63,7 @@ body::before {
     height: 100%;
     background-image: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+        radial-gradient(circle at 40% 80%, rgba(164, 95, 255, 0.3) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
 }
@@ -117,7 +117,7 @@ body {
 }
 
 a {
-    color: #24c1ff;
+    color: rgba(54, 122, 249);
     text-decoration: none;
 }
 
@@ -201,7 +201,8 @@ small {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 .social-links>a>img {
@@ -392,5 +393,14 @@ footer p {
     
     .placeholder-line {
         background-color: #eee;
+    }
+
+    .post {
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    /* override GitHub badge to improve contrast */
+    .social-links > a[title="GitHub"] > img[alt="GitHub"] {
+        filter: invert(1) hue-rotate(180deg) brightness(2) contrast(0.8);
     }
 }

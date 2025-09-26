@@ -11,8 +11,10 @@
     <link rel="preload" href="css/index.css" as="style" />
 
     <!-- CSS/JS -->
-    <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="liquid-glass-example/glass-style.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/lightbox.css" />
+    <script src="js/lightbox.js"></script>
 
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#993A37" media="(prefers-color-scheme: light)">
@@ -83,6 +85,11 @@
       }
       .gallery-item h2 {
         padding-bottom: 0;
+        color: rgb(32, 32, 32)
+      }
+
+      h4 {
+        padding-bottom: 0;
       }
       @media (max-width: 700px) {
         .gallery-grid {
@@ -104,6 +111,14 @@
 </head>
 
 <body>
+    <!-- Lightbox -->
+    <div id="lightbox-overlay" style="display:none;">
+    <div id="lightbox-content">
+        <button id="lightbox-close" aria-label="Close">&times;</button>
+        <img id="lightbox-img" src="" alt="Preview" />
+    </div>
+    </div>
+
     <div class="container one-column">
       <div class="glass">
         <div class="header-image">
