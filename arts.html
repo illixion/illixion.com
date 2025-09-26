@@ -8,10 +8,13 @@
     <title>Arts | illixion</title>
 
     <!-- preloads -->
+    <link rel="preload" href="css/liquid-glass/glass.css" as="style" />
     <link rel="preload" href="css/index.css" as="style" />
+    <link rel="preload" href="css/lightbox.css" as="style" />
+    <link rel="preload" href="js/lightbox.js" as="script" />
 
     <!-- CSS/JS -->
-    <link rel="stylesheet" href="liquid-glass-example/glass-style.css" />
+    <link rel="stylesheet" href="css/liquid-glass/glass.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/lightbox.css" />
     <script src="js/lightbox.js"></script>
@@ -51,7 +54,7 @@
         display: flex;
         flex-direction: column;
         gap: 1.25rem;
-        max-width: 50rem;
+        max-width: 44rem;
         width: 100%;
         margin: 0 auto;
       }
@@ -70,6 +73,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        
       }
       .gallery-item img {
         max-width: 100%;
@@ -195,6 +200,7 @@
       <div class="glass">
         <footer style="text-align:center;">
           <p>© 2025 illixion</p>
+          <p><a href="https://github.com/kevinbism/liquid-glass-effect">Liquid Glass</a> design by @kevinbism</p>
         </footer>
       </div>
     </div>
