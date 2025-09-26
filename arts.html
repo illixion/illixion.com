@@ -8,10 +8,16 @@
     <title>Arts | illixion</title>
 
     <!-- preloads -->
+    <link rel="preload" href="css/liquid-glass/glass.css" as="style" />
     <link rel="preload" href="css/index.css" as="style" />
+    <link rel="preload" href="css/lightbox.css" as="style" />
+    <link rel="preload" href="js/lightbox.js" as="script" />
 
     <!-- CSS/JS -->
+    <link rel="stylesheet" href="css/liquid-glass/glass.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/lightbox.css" />
+    <script src="js/lightbox.js"></script>
 
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#993A37" media="(prefers-color-scheme: light)">
@@ -44,23 +50,57 @@
     </script>
 
     <style>
-        main {
-            max-width: 720px;
-            padding-top: 0;
-        }
+      .container.one-column {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        max-width: 44rem;
+        width: 100%;
+        margin: 0 auto;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      .gallery-item {
+        background: rgba(255,255,255,0.15);
+        border-radius: 2rem;
+        box-shadow: 0 8px 32px rgba(31,38,135,0.2), inset 0 4px 20px rgba(255,255,255,0.3);
+        backdrop-filter: blur(2px) saturate(180%);
+        border: 1px solid rgba(255,255,255,0.8);
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+      }
+      .gallery-item img {
+        max-width: 100%;
+        border-radius: 1.5rem;
+        margin-bottom: 0.5em;
+        box-shadow: 0 2px 8px rgba(31,38,135,0.12);
+      }
+      .gallery-item p {
+        margin: 0;
+        font-size: 1em;
+        color: #222;
+        text-align: center;
+      }
+      .gallery-item h2 {
+        padding-bottom: 0;
+        color: rgb(32, 32, 32)
+      }
 
-        ul {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: stretch;
-            align-content: space-between;
+      h4 {
+        padding-bottom: 0;
+      }
+      @media (max-width: 700px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
         }
-
-        .projects>ul>li {
-            border-bottom: none;
-        }
+      }
     </style>
 
     <script>
@@ -76,115 +116,94 @@
 </head>
 
 <body>
-    <div class="header-image">
-        <img src="images/illixion.jpg" alt="Ixion" usemap="#header-map" />
+    <!-- Lightbox -->
+    <div id="lightbox-overlay" style="display:none;">
+    <div id="lightbox-content">
+        <button id="lightbox-close" aria-label="Close">&times;</button>
+        <img id="lightbox-img" src="" alt="Preview" />
     </div>
-    <map name="header-map">
-        <area shape="default" href="/" alt="illixion, link to home page">
-        <area shape="poly" coords="332, 209, 343, 242, 319, 274, 262, 264, 297, 213" onclick="playAudio()"
-            alt="Ixion's nose, clickable">
-    </map>
-    <h1>Ixion</h1>
-    <small>@illixion</small>
-    <br>
-    <main>
+    </div>
+
+    <div class="container one-column">
+      <div class="glass">
+        <div class="header-image">
+          <img src="images/illixion.jpg" alt="Ixion" usemap="#header-map" />
+        </div>
+        <map name="header-map">
+          <area shape="default" href="/" alt="illixion, link to home page">
+          <area shape="poly" coords="254, 154, 265, 187, 241, 219, 184, 209, 219, 158" onclick="playAudio()" alt="Ixion's nose, clickable">
+        </map>
+        <h1 style="text-align:center;">Ixion</h1>
+        <div style="text-align:center;"><small>@illixion</small></div>
+      </div>
+      <div class="glass">
         <section class="about-me">
-            <h2>Arts</h2>
-            <p>You'll find my character's commissioned artwork here.</p>
-            <p style="font-weight: bold;"><a href="images/arts/Ixion refsheet v5.png">Reference
-                    sheet can be found here</a></p>
+          <h2>Arts</h2>
+          <p>You'll find my character's commissioned artwork here.</p>
+          <p style="font-weight: bold;"><a href="images/arts/Ixion refsheet v5.png">Reference sheet can be found here</a></p>
         </section>
+      </div>
+      <div class="glass">
         <section class="projects">
-            <!-- list of links with images next to them -->
-            <ul>
-                <li>
-                    <a href="images/arts/Synthpara Ixion.png" alt="Synthpara Ixion"><img
-                            src="images/arts/t/Synthpara Ixion.jpg" alt="Synthpara Ixion" class="project-image" /></a>
-                    <a href="https://twitter.com/Synthpara">
-                        <p>by Paraa</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="images/arts/Volcanins Ixion.png" alt="Volcanins Ixion"><img
-                            src="images/arts/t/Volcanins Ixion.jpg" alt="Volcanins Ixion" class="project-image" /></a>
-                    <a href="https://www.furaffinity.net/user/volcanins/">
-                        <p>by Volcanins</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="images/arts/nursesenpai Ixion.png" alt="nursesenpai Ixion"><img
-                            src="images/arts/t/nursesenpai Ixion.jpg" alt="nursesenpai Ixion"
-                            class="project-image" /></a>
-                    <a href="https://twitter.com/nursesenpai">
-                        <p>by nursesenpai</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="images/arts/BelaOrdas Ixion.png" alt="BelaOrdas Ixion"><img
-                            src="images/arts/t/BelaOrdas Ixion.jpg" alt="BelaOrdas Ixion" class="project-image" /></a>
-                    <a href="https://twitter.com/BelaOrdas">
-                        <p>by BelaOrdas</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="images/arts/NeoYin boardgames.png" alt="NeoYin boardgames"><img
-                            src="images/arts/t/NeoYin boardgames.jpg" alt="NeoYin boardgames"
-                            class="project-image" /></a>
-                    <a href="https://twitter.com/Neoyin3">
-                        <p>by NeoYin</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="images/arts/Shiuk Ixion.png" alt="Shiuk Ixion"><img src="images/arts/t/Shiuk Ixion.jpg"
-                            alt="Shiuk Ixion" class="project-image" /></a>
-                    <a href="https://twitter.com/Shiuk">
-                        <p>by Shiuk</p>
-                    </a>
-                </li>
-                <li style="border-bottom: 1px dashed #eee; width: 100%; text-align: center;">
-                    <h2>Alternatives</h2>
-                </li>
-                <li>
-                    <a href="images/arts/Synthpara Ixion no DoF.png" alt="Synthpara Ixion no DoF"><img
-                            src="images/arts/t/Synthpara Ixion no DoF.jpg" alt="Synthpara Ixion no DoF"
-                            class="project-image" /></a>
-                    <a href="https://twitter.com/Synthpara">
-                        <p>by Paraa (no DoF)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="images/arts/nursesenpai Ixion Transparent.png"><img
-                            src="images/arts/nursesenpai Ixion Transparent.png" alt="nursesenpai Ixion Transparent"
-                            class="project-image" /></a>
-                    <a href="https://twitter.com/nursesenpai">
-                        <p>by nursesenpai (transparent)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="images/arts/Shiuk Ixion Outline.png"><img src="images/arts/Shiuk Ixion Outline.png"
-                            alt="Shiuk Ixion Outline" class="project-image" /></a>
-                    <a href="https://twitter.com/Shiuk">
-                        <p>by Shiuk (transparent)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="images/arts/Shiuk Ixion Transparent.png"><img src="images/arts/Shiuk Ixion Transparent.png"
-                            alt="Shiuk Ixion Transparent" class="project-image" /></a>
-                    <a href="https://twitter.com/Shiuk">
-                        <p>by Shiuk (transparent)</p>
-                    </a>
-                </li>
-            </ul>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <a href="images/arts/Synthpara Ixion.png" alt="Synthpara Ixion"><img src="images/arts/t/Synthpara Ixion.jpg" alt="Synthpara Ixion" /></a>
+              <a href="https://twitter.com/Synthpara"><p>by Paraa</p></a>
+            </div>
+            <div class="gallery-item">
+              <a href="images/arts/Volcanins Ixion.png" alt="Volcanins Ixion"><img src="images/arts/t/Volcanins Ixion.jpg" alt="Volcanins Ixion" /></a>
+              <a href="https://www.furaffinity.net/user/volcanins/"><p>by Volcanins</p></a>
+            </div>
+            <div class="gallery-item">
+              <a href="images/arts/nursesenpai Ixion.png" alt="nursesenpai Ixion"><img src="images/arts/t/nursesenpai Ixion.jpg" alt="nursesenpai Ixion" /></a>
+              <a href="https://twitter.com/nursesenpai"><p>by nursesenpai</p></a>
+            </div>
+            <div class="gallery-item">
+              <a href="images/arts/BelaOrdas Ixion.png" alt="BelaOrdas Ixion"><img src="images/arts/t/BelaOrdas Ixion.jpg" alt="BelaOrdas Ixion" /></a>
+              <a href="https://twitter.com/BelaOrdas"><p>by BelaOrdas</p></a>
+            </div>
+            <div class="gallery-item">
+              <a href="images/arts/NeoYin boardgames.png" alt="NeoYin boardgames"><img src="images/arts/t/NeoYin boardgames.jpg" alt="NeoYin boardgames" /></a>
+              <a href="https://twitter.com/Neoyin3"><p>by NeoYin</p></a>
+            </div>
+            <div class="gallery-item">
+              <a href="images/arts/Shiuk Ixion.png" alt="Shiuk Ixion"><img src="images/arts/t/Shiuk Ixion.jpg" alt="Shiuk Ixion" /></a>
+              <a href="https://twitter.com/Shiuk"><p>by Shiuk</p></a>
+            </div>
+            <div class="gallery-item" style="grid-column: 1 / -1; text-align: center;">
+              <h2>Alternatives</h2>
+            </div>
+            <div class="gallery-item">
+              <a href="images/arts/Synthpara Ixion no DoF.png" alt="Synthpara Ixion no DoF"><img src="images/arts/t/Synthpara Ixion no DoF.jpg" alt="Synthpara Ixion no DoF" /></a>
+              <a href="https://twitter.com/Synthpara"><p>by Paraa (no DoF)</p></a>
+            </div>
+            <div class="gallery-item">
+              <a href="images/arts/nursesenpai Ixion Transparent.png"><img src="images/arts/nursesenpai Ixion Transparent.png" alt="nursesenpai Ixion Transparent" /></a>
+              <a href="https://twitter.com/nursesenpai"><p>by nursesenpai (transparent)</p></a>
+            </div>
+            <div class="gallery-item">
+              <a href="images/arts/Shiuk Ixion Outline.png"><img src="images/arts/Shiuk Ixion Outline.png" alt="Shiuk Ixion Outline" /></a>
+              <a href="https://twitter.com/Shiuk"><p>by Shiuk (transparent)</p></a>
+            </div>
+            <div class="gallery-item">
+              <a href="images/arts/Shiuk Ixion Transparent.png"><img src="images/arts/Shiuk Ixion Transparent.png" alt="Shiuk Ixion Transparent" /></a>
+              <a href="https://twitter.com/Shiuk"><p>by Shiuk (transparent)</p></a>
+            </div>
+          </div>
         </section>
+      </div>
+      <div class="glass">
         <section>
-            <h4 class="blog-posts">
-                <a href="index.html" id="show-more-link">Go back</a>
-            </h4>
+          <h4 class="blog-posts"><a href="index.html" id="show-more-link">Go back</a></h4>
         </section>
-    </main>
-    <footer>
-        <p>© 2025 illixion</p>
-    </footer>
+      </div>
+      <div class="glass">
+        <footer style="text-align:center;">
+          <p>© 2025 illixion</p>
+          <p><a href="https://github.com/kevinbism/liquid-glass-effect">Liquid Glass</a> design by @kevinbism</p>
+        </footer>
+      </div>
+    </div>
 </body>
 
 </html>
