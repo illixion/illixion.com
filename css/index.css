@@ -353,6 +353,8 @@ section.sponsors > iframe {
     height: 225px;
     border: 0;
     width: 98%;
+    /* rounded corners */
+    border-radius: 0.5rem;
 }
 
 footer {
