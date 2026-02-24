@@ -1,10 +1,10 @@
 # Ixion's authorized_keys
 
 # Install w/ auto update
-# mkdir ~/.ssh >/dev/null; /usr/bin/curl -Lfso ~/.ssh/authorized_keys 'https://illixion.com/ssh.keys' && cat ~/.ssh/authorized_keys_local >> ~/.ssh/authorized_keys && (crontab -l ; echo "0 0 * * * /usr/bin/curl -Lfso ~/.ssh/authorized_keys 'https://illixion.com/ssh.keys' && cat ~/.ssh/authorized_keys_local >> ~/.ssh/authorized_keys") | crontab -
+# mkdir -p ~/.ssh && chmod 700 ~/.ssh && /usr/bin/curl -Lfso ~/.ssh/authorized_keys 'https://illixion.com/ssh.keys' && cat ~/.ssh/authorized_keys_local >> ~/.ssh/authorized_keys 2>/dev/null; (crontab -l 2>/dev/null | grep -v illixion.com/ssh.keys; echo "0 0 * * * /usr/bin/curl -Lfso ~/.ssh/authorized_keys 'https://illixion.com/ssh.keys' && cat ~/.ssh/authorized_keys_local >> ~/.ssh/authorized_keys 2>/dev/null") | crontab -
 
 # Install w/o autoupdate
-# mkdir ~/.ssh >/dev/null; /usr/bin/curl -Lfso ~/.ssh/authorized_keys 'https://illixion.com/ssh.keys' && cat ~/.ssh/authorized_keys_local >> ~/.ssh/authorized_keys
+# mkdir -p ~/.ssh && chmod 700 ~/.ssh && /usr/bin/curl -Lfso ~/.ssh/authorized_keys 'https://illixion.com/ssh.keys' && cat ~/.ssh/authorized_keys_local >> ~/.ssh/authorized_keys 2>/dev/null
 
 # HSM-backed keys
 sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIDLgXLu6/YO/33VWolJAlhPRtu+j7siGlkTpFLCcyWKOAAAABHNzaDo= ixion@YubiKey5-sk
