@@ -1,0 +1,3 @@
+# The signed SSH key system moved to its own repo / GitHub Pages.
+/ssh    https://illixion.github.io/          302
+/ssh/*  https://illixion.github.io/:splat    302
