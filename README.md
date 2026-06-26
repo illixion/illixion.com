@@ -10,7 +10,7 @@ repo and is served from GitHub Pages (its binary payload is too large for
 Cloudflare Pages):
 
 - Repo: <https://github.com/illixion/illixion.github.io>
-- Site: <https://illixion.github.io>
+- Site: <https://ssh.illixion.com>
 
 `/ssh` on this site redirects there. The legacy plain key list at
 [`/ssh.keys`](ssh.keys) is kept only for old `curl`-based clients and is being
