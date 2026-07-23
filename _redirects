@@ -1,3 +1,9 @@
 # The signed SSH key system moved to its own repo / GitHub Pages.
 /ssh    https://ssh.illixion.com/          302
 /ssh/*  https://ssh.illixion.com/:splat    302
+
+# TEMP migration bridge: legacy curl+cron hosts pull an unsigned authorized_keys
+# from /ssh.keys. Redirect them to the source-of-truth keys.list on the signed
+# site (re-published every rotation) so they stay current until migrated to
+# ssh-keys-updater. `curl -Lf` follows the 302. Delete once no hosts pull this.
+/ssh.keys  https://ssh.illixion.com/keys.list  302
