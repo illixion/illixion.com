@@ -67,21 +67,37 @@ function plainText(htmlish) {
   return new DOMParser().parseFromString(htmlish || '', 'text/html').body.textContent.trim();
 }
 
+const morePosts = document.getElementById('more-posts');
+const PAGE = 4;
+let allPosts = [];
+
+function postItem(post) {
+  const li = document.createElement('li');
+  const h3 = document.createElement('h3');
+  const a = document.createElement('a');
+  a.href = post.uri;
+  a.textContent = plainText(post.title);
+  h3.append(a);
+  const p = document.createElement('p');
+  p.textContent = plainText(post.summary);
+  li.append(h3, p);
+  return li;
+}
+
+function showMorePosts() {
+  const shown = postList.querySelectorAll('li:not(.placeholder)').length;
+  postList.querySelectorAll('.placeholder').forEach((li) => li.remove());
+  postList.append(...allPosts.slice(shown, shown + PAGE).map(postItem));
+  morePosts.hidden = shown + PAGE >= allPosts.length;
+}
+
+morePosts.addEventListener('click', showMorePosts);
+
 fetch('https://blog.illixion.com/searchindex.json')
   .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
   .then((data) => {
-    postList.replaceChildren(...data.posts.slice(0, 4).map((post) => {
-      const li = document.createElement('li');
-      const h3 = document.createElement('h3');
-      const a = document.createElement('a');
-      a.href = post.uri;
-      a.textContent = plainText(post.title);
-      h3.append(a);
-      const p = document.createElement('p');
-      p.textContent = plainText(post.summary);
-      li.append(h3, p);
-      return li;
-    }));
+    allPosts = data.posts || [];
+    showMorePosts();
   })
   .catch(() => {
     const li = document.createElement('li');
