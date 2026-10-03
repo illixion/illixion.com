@@ -48,12 +48,10 @@
     </script>
 
     <script>
-        var audio;
+        const audioTemplate = new Audio('audio/partyfavorraspypart_ac01_3.mp3');
 
         function playAudio() {
-            if (!audio) {
-                audio = new Audio('/audio/partyfavorraspypart_ac01_3.mp3');
-            }
+            const audio = audioTemplate.cloneNode();
             audio.play();
         }
     </script>
