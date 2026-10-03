@@ -8,6 +8,9 @@ Home, Apps, Projects, Art and Keys. Without JavaScript every tab shows, one afte
   blog's `searchindex.json`, and adds an Install link to each app that
   [apps.illixion.com/source.json](https://apps.illixion.com/source.json) ships.
 - `sw.js` is network-first with a cache fallback. Bump `VERSION` when its shell list changes.
+- Cloudflare lets browsers cache `/js/*` and `/css/*` for 4 hours, but not `/`. After changing
+  `css/index.css` or anything in `js/`, bump the `?v=` stamp on them in `index.html`, `404.html`
+  and `sw.js`. Otherwise returning visitors get the new HTML with the old script and styles.
 - `_headers` sets a strict CSP (no inline scripts or styles). Cloudflare Web Analytics is
   allowed in it; turn it on in the Pages project's settings, which injects the beacon.
 
