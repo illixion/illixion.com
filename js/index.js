@@ -8,19 +8,56 @@ document.documentElement.classList.add('js');
 const TABS = ['home', 'apps', 'projects', 'arts', 'keys'];
 const TITLES = { home: 'Ixion', apps: 'Apps', projects: 'Projects', arts: 'Art', keys: 'Keys' };
 
-function showTab(id, { scroll = true } = {}) {
+const bar = document.querySelector('.tabbar');
+const indicator = document.createElement('span');
+indicator.className = 'indicator';
+indicator.setAttribute('aria-hidden', 'true');
+bar.prepend(indicator);
+
+// The highlight behind the current tab slides to the new one (CSS transitions the transform).
+function moveIndicator() {
+  const a = bar.querySelector('[aria-current="page"]');
+  if (!a) return;
+  indicator.style.width = `${a.offsetWidth}px`;
+  indicator.style.height = `${a.offsetHeight}px`;
+  indicator.style.transform = `translate(${a.offsetLeft}px, ${a.offsetTop}px)`;
+}
+
+let current = null;
+
+function showTab(id) {
   if (!TABS.includes(id)) id = 'home';
-  document.querySelectorAll('.tab').forEach((s) => s.classList.toggle('active', s.id === id));
+  if (id === current) return;
+  const dir = current && TABS.indexOf(id) < TABS.indexOf(current) ? -1 : 1;
+  const first = current === null;
+  current = id;
+
+  document.querySelectorAll('.tab').forEach((s) => {
+    const on = s.id === id;
+    s.classList.toggle('active', on);
+    s.classList.remove('enter');
+    if (on && !first) {
+      // The new tab's panels slide in from the side the tab sits on, one after another.
+      s.style.setProperty('--dir', dir);
+      [...s.children].forEach((c, i) => c.style.setProperty('--i', Math.min(i, 5)));
+      void s.offsetWidth; // restart the animation if this tab was shown before
+      s.classList.add('enter');
+    }
+  });
   document.querySelectorAll('.tabbar a').forEach((a) => {
     if (a.dataset.tab === id) a.setAttribute('aria-current', 'page');
     else a.removeAttribute('aria-current');
   });
+  moveIndicator();
   document.title = id === 'home' ? 'Ixion' : `${TITLES[id]} | Ixion`;
-  if (scroll) window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
 }
 
 window.addEventListener('hashchange', () => showTab(location.hash.slice(1)));
+window.addEventListener('resize', moveIndicator);
 showTab(location.hash.slice(1));
+// Turn the indicator's transition on only after it has been placed, so it doesn't fly in on load.
+requestAnimationFrame(() => requestAnimationFrame(() => bar.classList.add('ready')));
 
 // ---------------------------------------------------------------- blog posts
 
