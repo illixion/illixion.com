@@ -7,3 +7,8 @@
 # site (re-published every rotation) so they stay current until migrated to
 # ssh-keys-updater. `curl -Lf` follows the 302. Delete once no hosts pull this.
 /ssh.keys  https://ssh.illixion.com/keys.list  302
+
+# The art gallery and PGP key are tabs on the home page now.
+/arts.html  /#arts  301
+/arts       /#arts  301
+/pgp        /#keys  301

@@ -3,126 +3,280 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>illixion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Ixion</title>
+    <meta name="description" content="Ixion's apps, projects, art and keys.">
+    <meta name="color-scheme" content="light dark">
 
-    <!-- preloads -->
-    <link rel="preload" href="css/liquid-glass/glass.css" as="style" />
-    <link rel="preload" href="css/index.css" as="style" />
-    <link rel="preload" href="js/index.js" as="script" />
-
-    <!-- CSS/JS -->
-    <link rel="stylesheet" href="css/liquid-glass/glass.css" />
     <link rel="stylesheet" href="css/index.css" />
-    <script src="js/index.js"></script>
+    <script src="js/early.js"></script>
+    <script src="js/index.js" defer></script>
 
-    <!-- Color theme for statusbar -->
-    <meta name="theme-color" content="#993A37" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#7E302D" media="(prefers-color-scheme: dark)">
-
-    <!-- favicon stuff -->
+    <!-- installable as a web app -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E9EBF5" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0E0F1A" media="(prefers-color-scheme: dark)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Ixion">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#b91d47">
 
-    <!-- page metadata -->
-    <meta name="description" content="illixion's website">
-    <meta name="keywords" content="illixion, website, portfolio, projects, blog, blog posts, blog posts">
-    <meta name="author" content="illixion">
-    <meta property="og:title" content="illixion's website">
+    <meta name="author" content="Ixion">
+    <meta property="og:title" content="Ixion">
+    <meta property="og:description" content="Ixion's apps, projects, art and keys.">
     <meta property="og:image" content="https://illixion.com/images/illixion.jpg">
-    <meta property="og:image:alt" content="illixion's website">
-    <meta property="og:image:type" content="image/png">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KNFQ0P4WEB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-KNFQ0P4WEB');
-    </script>
-
-    <script>
-        const audioTemplate = new Audio('audio/partyfavorraspypart_ac01_3.mp3');
-
-        function playAudio() {
-            const audio = audioTemplate.cloneNode();
-            audio.play();
-        }
-    </script>
+    <meta property="og:image:alt" content="Ixion's avatar">
 </head>
 
 <body>
-    <div class="container one-column">
-        <div class="glass">
-            <div class="header-image">
-                <img src="images/illixion.jpg" alt="Ixion" usemap="#header-map" />
+    <a class="skip" href="#main">Skip to content</a>
+
+    <nav class="tabbar glass" aria-label="Sections">
+        <a href="#home" data-tab="home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20h-5.5v-5.5h-5V20H4z"/></svg>
+            <span>Home</span>
+        </a>
+        <a href="#apps" data-tab="apps">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.8"/></svg>
+            <span>Apps</span>
+        </a>
+        <a href="#projects" data-tab="projects">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5"/></svg>
+            <span>Projects</span>
+        </a>
+        <a href="#arts" data-tab="arts">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="m3.5 16 5-4.5 4 3.5 3-2.5 5 4"/><circle cx="15.5" cy="9.5" r="1.5"/></svg>
+            <span>Art</span>
+        </a>
+        <a href="#keys" data-tab="keys">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h8.5M17 12v3.5M20 12v2.5"/></svg>
+            <span>Keys</span>
+        </a>
+    </nav>
+
+    <main id="main" class="container one-column">
+
+        <!-- Home -->
+        <section class="tab" id="home" aria-label="Home">
+            <div class="glass hero">
+                <div class="avatar">
+                    <img src="images/illixion.jpg" width="1000" height="1000" alt="Ixion, a purple dragon in a red visor">
+                    <button class="nose" type="button" aria-label="Boop the nose"></button>
+                </div>
+                <h1>Ixion</h1>
+                <p class="handle">@illixion</p>
+                <nav class="social-links" aria-label="Elsewhere">
+                    <a rel="me" href="https://synth.zip/users/ixion" title="Mastodon"><img src="images/mastodon.svg" alt="Mastodon" /></a>
+                    <a rel="me" href="https://bsky.app/profile/illixion.com" title="Bluesky"><img src="images/bluesky.svg" alt="Bluesky" /></a>
+                    <a href="https://github.com/illixion" title="GitHub"><img class="github" src="images/github.svg" alt="GitHub" /></a>
+                    <a href="https://t.me/illixion" title="Telegram"><img src="images/telegram.svg" alt="Telegram" /></a>
+                    <a href="https://www.youtube.com/@illixion" title="YouTube"><img src="images/youtube.svg" alt="YouTube" /></a>
+                    <a href="https://www.flickr.com/people/100352623@N08/" title="Flickr"><img src="images/flickr.svg" alt="Flickr" /></a>
+                </nav>
             </div>
-            <map name="header-map">
-                <area shape="default" href="/" alt="illixion, link to home page">
-                <area shape="poly" coords="183, 115, 186, 133, 162, 153, 129, 142, 158, 102" onclick="playAudio()" alt="Ixion's nose, clickable">
-            </map>
-            <h1 style="text-align:center;">Ixion</h1>
-            <div style="text-align:center;"><small>@illixion</small></div>
-        </div>
-        <div class="glass">
-            <section class="social-links">
-                <a rel="me" href="https://synth.zip/users/ixion" title="Mastodon"><img src="images/mastodon.svg" alt="Mastodon" /></a>
-                <a rel="me" href="https://bsky.app/profile/illixion.com" title="Bluesky"><img src="images/bluesky.svg" alt="Bluesky" /></a>
-                <a href="https://www.github.com/illixion/" title="GitHub"><img src="images/github.svg" alt="GitHub" /></a>
-                <a href="https://t.me/illixion" title="Telegram"><img src="images/telegram.svg" alt="Telegram" /></a>
-                <a href="https://www.youtube.com/@illixion" title="YouTube"><img src="images/youtube.svg" alt="YouTube" /></a>
-                <a href="https://www.flickr.com/people/100352623@N08/" title="Flickr"><img src="images/flickr.svg" alt="Flickr" /></a>
-            </section>
-        </div>
-        <div class="glass">
-            <section class="about-me">
+
+            <div class="glass prose">
                 <h2>About</h2>
                 <p>Infrastructure engineer for a living, technical writer and FOSS developer on the side, sometimes a photographer.</p>
                 <p>I'm always working on something new, follow me on social media of your choice to stay up-to-date!</p>
-                <p>You can find artwork of my character here: <a href="arts.html">Arts</a></p>
-            </section>
-        </div>
-        <div class="glass">
-            <section class="blog-posts">
+            </div>
+
+            <div class="glass">
                 <h2>Recent blog posts</h2>
-                <noscript>
-                    <p style="color: red;">JavaScript is disabled in your browser. Please enable it to see the blog posts.</p>
-                </noscript>
-                <span id="blog-post-list">
-                    <div class="placeholder-post"><div class="placeholder-title"></div><div class="placeholder-line"></div><div class="placeholder-line short"></div></div>
-                    <div class="placeholder-post"><div class="placeholder-title"></div><div class="placeholder-line"></div><div class="placeholder-line short"></div></div>
-                    <div class="placeholder-post"><div class="placeholder-title"></div><div class="placeholder-line"></div><div class="placeholder-line short"></div></div>
-                    <div class="placeholder-post"><div class="placeholder-title"></div><div class="placeholder-line"></div><div class="placeholder-line short"></div></div>
-                </span>
-                <h4><a id="show-more-link">Show more</a></h4>
-            </section>
-        </div>
-        <div class="glass">
-            <section class="projects">
-                <h2>Projects</h2>
-                <ul>
-                    <li><img src="images/synthzip.png" alt="Synth.zip" class="project-logo" /><h3><a href="https://synth.zip">Synth.zip</a></h3><p>synth.zip is an open community-oriented Mastodon server using Pleroma as the backend.</p></li>
-                    <li><h3><a href="https://blog.illixion.com">blog.illixion.com</a></h3><p>Technology-related blog that I semi-regularly update. It's mostly a personal notepad that I go back to if I need something, but I also share the knowledge within it with the rest of the world. You can see some of the posts above.</p><p>Subscribe to the <a href="https://blog.illixion.com/index.xml">RSS feed</a> to stay up-to-date!</p></li>
-                    <li><img src="images/kataprints.png" alt="Kataprints" class="project-logo" /><p>[archived] Kataprints was an online clothing and accessory store based in Riga, Latvia. Purchases would support artists directly, products would ship worldwide and you'd get high-quality items in return. I was responsible for all technical aspects of maintaining the website.</p></li>
+                <ul class="posts" id="blog-post-list">
+                    <li class="placeholder"></li>
+                    <li class="placeholder"></li>
+                    <li class="placeholder"></li>
                 </ul>
-            </section>
-        </div>
-        <div class="glass">
-            <section class="sponsors">
+                <noscript><p class="muted">The post list needs JavaScript. All posts are on <a href="https://blog.illixion.com">blog.illixion.com</a>.</p></noscript>
+                <p class="row-links">
+                    <a class="pill" href="https://blog.illixion.com">All posts</a>
+                    <a class="pill" href="https://blog.illixion.com/index.xml">RSS feed</a>
+                </p>
+            </div>
+
+            <div class="glass">
                 <h2>Sponsors</h2>
-                <iframe src="https://github.com/sponsors/illixion/card" title="Sponsor Ixion"></iframe>
-            </section>
-        </div>
-        <div class="glass">
-            <footer style="text-align:center;">
-                <p>© 2025 illixion</p>
-                <p><a href="https://github.com/kevinbism/liquid-glass-effect">Liquid Glass effect by @kevinbism</a></p>
-            </footer>
-        </div>
-    </div>
+                <iframe class="sponsors" src="https://github.com/sponsors/illixion/card" title="Sponsor Ixion on GitHub" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <!-- Apps -->
+        <section class="tab" id="apps" aria-labelledby="h-apps">
+            <div class="glass prose">
+                <h2 id="h-apps">Apps</h2>
+                <p>Apps I make for Apple Vision Pro, iPhone, iPad and Mac. They aren't on the App Store yet. The iPhone and iPad builds install through AltStore or SideStore from <a href="https://apps.illixion.com">apps.illixion.com</a>.</p>
+            </div>
+
+            <ul class="apps">
+                <li class="glass app" data-bundle="com.illixion.hypnos">
+                    <img src="images/apps/convolution.png" width="64" height="64" alt="">
+                    <div>
+                        <h3>Convolution</h3>
+                        <p class="sub">Photo, video and film library</p>
+                        <p>One library for your Photos, a Stash, Nextcloud or Jellyfin server, or local files. Films keep their object audio, and on Vision Pro it turns flat photos and videos into 3D.</p>
+                        <p class="meta">Vision Pro, iPhone, iPad, Apple TV and Mac</p>
+                        <p class="row-links">
+                            <a class="pill" href="https://github.com/illixion/Convolution">Source on GitHub</a>
+                        </p>
+                    </div>
+                </li>
+                <li class="glass app" data-bundle="pro.longwave.ios">
+                    <img src="images/apps/longwave.png" width="64" height="64" alt="">
+                    <div>
+                        <h3>Longwave</h3>
+                        <p class="sub">Remote desktop and game streaming</p>
+                        <p>VNC remote desktop, game streaming from a Sunshine host and an SSH terminal for the computers you own. On Vision Pro the desktops sit in the room as windows you place.</p>
+                        <p class="meta">Vision Pro, iPhone, iPad and Mac</p>
+                        <p class="row-links">
+                            <a class="pill" href="https://longwave.pro">Website</a>
+                            <a class="pill" href="https://github.com/illixion/Longwave">Source on GitHub</a>
+                        </p>
+                    </div>
+                </li>
+                <li class="glass app" data-bundle="com.illixion.worldcast.Worldcast">
+                    <img src="images/apps/worldcast.png" width="64" height="64" alt="">
+                    <div>
+                        <h3>Worldcast</h3>
+                        <p class="sub">Podcast listener for one person</p>
+                        <p>A small Node.js server you run keeps your subscriptions and progress. A web app and the Apple clients play from it.</p>
+                        <p class="meta">iPhone, iPad, Apple Watch, Vision Pro and the web</p>
+                        <p class="row-links">
+                            <a class="pill" href="https://github.com/illixion/worldcast">Source on GitHub</a>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section class="tab" id="projects" aria-labelledby="h-projects">
+            <div class="glass">
+                <h2 id="h-projects">Running</h2>
+                <ul class="list">
+                    <li>
+                        <img src="images/synthzip.png" width="40" height="40" alt="">
+                        <div><h3><a href="https://synth.zip">synth.zip</a></h3><p>An open, community-oriented Mastodon server running on Pleroma.</p></div>
+                    </li>
+                    <li>
+                        <div><h3><a href="https://blog.illixion.com">blog.illixion.com</a></h3><p>My technology blog. Mostly a notepad I come back to when I need something, shared in case it helps someone else.</p></div>
+                    </li>
+                    <li>
+                        <div><h3><a href="https://ssh.illixion.com">ssh.illixion.com</a></h3><p>Self-hosted, end-to-end-signed SSH key sync for my machines.</p></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass">
+                <h2>Open source</h2>
+                <ul class="list">
+                    <li><div><h3><a href="https://github.com/illixion/vscode-vibrancy-continued">Vibrancy Continued</a></h3><p>Acrylic, Mica and glass window effects for VS Code.</p></div></li>
+                    <li><div><h3><a href="https://github.com/illixion/RoboFrame">RoboFrame</a></h3><p>A digital photo frame with image search, display control and optional Home Assistant integration.</p></div></li>
+                    <li><div><h3><a href="https://github.com/illixion/Annemone">Annemone</a></h3><p>Control the RGB lighting of an Anne Pro 2 keyboard from Node.js.</p></div></li>
+                    <li><div><h3><a href="https://github.com/illixion/StreamDeck-Animated-Screensaver">Stream Deck Animated Screensaver</a></h3><p>Turn a video into a Stream Deck preset that plays as a screensaver.</p></div></li>
+                    <li><div><h3><a href="https://github.com/illixion/root-my-webos-tv">root-my-webos-tv</a></h3><p>Proof of concept for CVE-2023-6319 on LG webOS TVs.</p></div></li>
+                    <li><div><h3><a href="https://github.com/illixion/WebOverlay">WebOverlay</a></h3><p>A configurable, web-based HUD overlay for macOS.</p></div></li>
+                    <li><div><h3><a href="https://github.com/illixion/Macrobot">Macrobot</a></h3><p>A lightweight macro recorder and player for macOS.</p></div></li>
+                    <li><div><h3><a href="https://github.com/illixion/web-yt-dlp">web-yt-dlp</a></h3><p>A web front end for yt-dlp that works with iOS Shortcuts.</p></div></li>
+                </ul>
+                <p class="row-links"><a class="pill" href="https://github.com/illixion?tab=repositories">Everything on GitHub</a></p>
+            </div>
+
+            <div class="glass">
+                <h2>Archived</h2>
+                <ul class="list">
+                    <li>
+                        <img src="images/kataprints.png" width="40" height="40" alt="">
+                        <div><h3>Kataprints</h3><p>An online clothing and accessory store based in Riga, Latvia, where purchases supported artists directly. I ran all of the technical side.</p></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Art -->
+        <section class="tab" id="arts" aria-labelledby="h-arts">
+            <div class="glass prose">
+                <h2 id="h-arts">Art</h2>
+                <p>Commissioned artwork of my character. Tap a picture to see it full size.</p>
+                <p class="row-links"><a class="pill" href="images/arts/Ixion%20refsheet%20v5.png" data-lightbox>Reference sheet</a></p>
+            </div>
+
+            <ul class="gallery">
+                <li class="glass"><a href="images/arts/Synthpara%20Ixion.png" data-lightbox><img src="images/arts/t/Synthpara%20Ixion.jpg" loading="lazy" alt="Ixion by Paraa"></a><p>by <a href="https://twitter.com/Synthpara">Paraa</a></p></li>
+                <li class="glass"><a href="images/arts/Volcanins%20Ixion.png" data-lightbox><img src="images/arts/t/Volcanins%20Ixion.jpg" loading="lazy" alt="Ixion by Volcanins"></a><p>by <a href="https://www.furaffinity.net/user/volcanins/">Volcanins</a></p></li>
+                <li class="glass"><a href="images/arts/nursesenpai%20Ixion.png" data-lightbox><img src="images/arts/t/nursesenpai%20Ixion.jpg" loading="lazy" alt="Ixion by nursesenpai"></a><p>by <a href="https://twitter.com/nursesenpai">nursesenpai</a></p></li>
+                <li class="glass"><a href="images/arts/BelaOrdas%20Ixion.png" data-lightbox><img src="images/arts/t/BelaOrdas%20Ixion.jpg" loading="lazy" alt="Ixion by BelaOrdas"></a><p>by <a href="https://twitter.com/BelaOrdas">BelaOrdas</a></p></li>
+                <li class="glass"><a href="images/arts/NeoYin%20boardgames.png" data-lightbox><img src="images/arts/t/NeoYin%20boardgames.jpg" loading="lazy" alt="Ixion playing board games, by NeoYin"></a><p>by <a href="https://twitter.com/Neoyin3">NeoYin</a></p></li>
+                <li class="glass"><a href="images/arts/Shiuk%20Ixion.png" data-lightbox><img src="images/arts/t/Shiuk%20Ixion.jpg" loading="lazy" alt="Ixion by Shiuk"></a><p>by <a href="https://twitter.com/Shiuk">Shiuk</a></p></li>
+            </ul>
+
+            <div class="glass">
+                <h2>Alternate versions</h2>
+                <ul class="gallery small">
+                    <li><a href="images/arts/Synthpara%20Ixion%20no%20DoF.png" data-lightbox><img src="images/arts/t/Synthpara%20Ixion%20no%20DoF.jpg" loading="lazy" alt="Ixion by Paraa, without depth of field"></a><p>Paraa, without depth of field</p></li>
+                    <li><a href="images/arts/nursesenpai%20Ixion%20Transparent.png" data-lightbox><img src="images/arts/t/nursesenpai%20Ixion%20Transparent.png" loading="lazy" alt="Ixion by nursesenpai, transparent background"></a><p>nursesenpai, transparent</p></li>
+                    <li><a href="images/arts/Shiuk%20Ixion%20Outline.png" data-lightbox><img src="images/arts/t/Shiuk%20Ixion%20Outline.png" loading="lazy" alt="Ixion by Shiuk, outline"></a><p>Shiuk, outline</p></li>
+                    <li><a href="images/arts/Shiuk%20Ixion%20Transparent.png" data-lightbox><img src="images/arts/t/Shiuk%20Ixion%20Transparent.png" loading="lazy" alt="Ixion by Shiuk, transparent background"></a><p>Shiuk, transparent</p></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Keys -->
+        <section class="tab" id="keys" aria-labelledby="h-keys">
+            <div class="glass prose">
+                <h2 id="h-keys">PGP key</h2>
+                <p>For mail to <a href="mailto:illixion@illixion.com">illixion@illixion.com</a> and for checking things I've signed. GnuPG can fetch it straight from this domain:</p>
+                <pre class="cmd"><code>gpg --locate-keys illixion@illixion.com</code></pre>
+                <dl class="facts">
+                    <div><dt>Fingerprint</dt><dd><code class="fpr">AAC5 5785 2510 A3E6 CF8A D178 AC64 944A 2D46 AA61</code></dd></div>
+                    <div><dt>Algorithm</dt><dd>Ed25519, Cv25519 for encryption</dd></div>
+                    <div><dt>Created</dt><dd>28 November 2022</dd></div>
+                </dl>
+                <details class="keyblock">
+                    <summary>Show the key block</summary>
+                    <pre id="pgp-key"><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEY4TLfRYJKwYBBAHaRw8BAQdApLdgNqk0tKLy40G3laVeHOaAtnWwgBPUKoIL
+zYNseNu0HUl4aW9uIDxpbGxpeGlvbkBpbGxpeGlvbi5jb20+iJMEExYKADsWIQSq
+xVeFJRCj5s+K0XisZJRKLUaqYQUCY4TLfQIbAwULCQgHAgIiAgYVCgkICwIEFgID
+AQIeBwIXgAAKCRCsZJRKLUaqYU18AQDy8M+/4a15EvcdExKWKyrkiw67MS/2fPKE
+vkijH2f9dwEAwbg8cCBwqmPT0FFkVOpeEb8n+4eFNGELgd71Tt0mNwK4MwRjhMt9
+FgkrBgEEAdpHDwEBB0BiemJEW0e45iZGnnLovUaqsqHIs1o+Ns0Rd7rDKsgoZYh4
+BBgWCgAgFiEEqsVXhSUQo+bPitF4rGSUSi1GqmEFAmOEy30CGyAACgkQrGSUSi1G
+qmH32gEA6QE+0Wm3JRrOQc921kp3LYJC2beFX16IrHXAV5pSrQoBAL5XWUYSFxI4
+v/CGs3zHz841tobQNV5Lf96eXSCkmJQIuDgEY4TLfRIKKwYBBAGXVQEFAQEHQH6E
+X/QSNWiyruSdunVhA4BF21wnRxn1DVhFDsRqv4tOAwEIB4h4BBgWCgAgFiEEqsVX
+hSUQo+bPitF4rGSUSi1GqmEFAmOEy30CGwwACgkQrGSUSi1GqmGJIAEAjfZA3x+h
+c05q9HozOE37H/6CoMXD8N4FbGbNQgLci5AA/3wrgYP+sGTI+r/XYGdv6tdTMbTh
+/vc3EoXiUvqQZbgM
+=QtGD
+-----END PGP PUBLIC KEY BLOCK-----</code></pre>
+                </details>
+                <p class="row-links">
+                    <button class="pill" type="button" data-copy-from="pgp-key">Copy key</button>
+                    <a class="pill" href="pgp.txt" download="ixion.asc">Download</a>
+                </p>
+                <p class="muted">Every commit to this site's repository is signed, so you can check that the key hasn't been swapped in <a href="https://github.com/illixion/illixion.com/commits/main/pgp.txt">the history of pgp.txt</a>.</p>
+            </div>
+
+            <div class="glass prose">
+                <h2>SSH keys</h2>
+                <p>My public SSH keys, and the signed sync that keeps them current on my machines, are at <a href="https://ssh.illixion.com">ssh.illixion.com</a>.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Ixion</p>
+            <p><a href="https://github.com/kevinbism/liquid-glass-effect">Liquid Glass effect by @kevinbism</a></p>
+        </footer>
+    </main>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Artwork">
+        <button class="close" type="button" aria-label="Close">×</button>
+        <img alt="">
+    </dialog>
+</body>
+
+</html>

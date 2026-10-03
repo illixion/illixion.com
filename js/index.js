@@ -1,67 +1,126 @@
-var blogPosts;
+// Tabs, blog posts, app install links, art lightbox, key copy, and the nose.
+// Loaded with `defer`, so the DOM is ready when this runs.
 
-function createBlogPosts(posts) {
-  posts.forEach((post) => {
-    // create a new div
-    const postDiv = document.createElement('div');
-    // set the class of the div to post
-    postDiv.className = 'post';
-    // create a new h3
-    const postTitle = document.createElement('h3');
-    // create a link to the post
-    const postLink = document.createElement('a');
-    // set the href to the post's url
-    postLink.href = post.uri;
-    // append the link to the h3
-    postTitle.appendChild(postLink);
-    // set the text of the link to the post's title
-    postLink.textContent = post.title;
-    // append the h3 to the div
-    postDiv.appendChild(postTitle);
-    // create a new p
-    const postContent = document.createElement('p');
-    // set the text of the p to the post's summary, parse html entity encoding
-    postContent.innerHTML = post.summary.replace(/&rsquo;/g, "'");
-    // append the p to the div
-    postDiv.appendChild(postContent);
-    // append the div to #blog-post-list section
-    document.querySelector('#blog-post-list').appendChild(postDiv);
+document.documentElement.classList.add('js');
+
+// ---------------------------------------------------------------- tabs
+
+const TABS = ['home', 'apps', 'projects', 'arts', 'keys'];
+const TITLES = { home: 'Ixion', apps: 'Apps', projects: 'Projects', arts: 'Art', keys: 'Keys' };
+
+function showTab(id, { scroll = true } = {}) {
+  if (!TABS.includes(id)) id = 'home';
+  document.querySelectorAll('.tab').forEach((s) => s.classList.toggle('active', s.id === id));
+  document.querySelectorAll('.tabbar a').forEach((a) => {
+    if (a.dataset.tab === id) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
   });
+  document.title = id === 'home' ? 'Ixion' : `${TITLES[id]} | Ixion`;
+  if (scroll) window.scrollTo(0, 0);
+}
+
+window.addEventListener('hashchange', () => showTab(location.hash.slice(1)));
+showTab(location.hash.slice(1));
+
+// ---------------------------------------------------------------- blog posts
+
+const postList = document.getElementById('blog-post-list');
+
+function plainText(htmlish) {
+  return new DOMParser().parseFromString(htmlish || '', 'text/html').body.textContent.trim();
 }
 
 fetch('https://blog.illixion.com/searchindex.json')
-  .then((response) => response.json())
-  .then((data) => (blogPosts = data))
+  .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
   .then((data) => {
-    // create the blog posts, limited to 4
-    createBlogPosts(data.posts.slice(0, 4));
+    postList.replaceChildren(...data.posts.slice(0, 4).map((post) => {
+      const li = document.createElement('li');
+      const h3 = document.createElement('h3');
+      const a = document.createElement('a');
+      a.href = post.uri;
+      a.textContent = plainText(post.title);
+      h3.append(a);
+      const p = document.createElement('p');
+      p.textContent = plainText(post.summary);
+      li.append(h3, p);
+      return li;
+    }));
   })
-  .finally(() => {
-    // clear all placeholder posts
-    const placeholderPosts = document.querySelectorAll('.placeholder-post');
-    placeholderPosts.forEach((post) => {
-      post.remove();
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-    // add an error message to the page
-    const errorMessage = document.createElement('p');
-    errorMessage.textContent = 'There was an error loading the blog posts.';
-    document.querySelector('#blog-post-list').appendChild(errorMessage);
+  .catch(() => {
+    const li = document.createElement('li');
+    li.className = 'muted';
+    li.textContent = "Couldn't load the latest posts. They're all on the blog.";
+    postList.replaceChildren(li);
   });
 
-window.onload = () => {
-  const showMoreLink = document.querySelector('#show-more-link');
-  showMoreLink.addEventListener('click', () => {
-    // count the number of posts already displayed
-    const postsDisplayed = document.querySelectorAll('.post').length;
-    // create the blog posts, limited to 4
-    createBlogPosts(blogPosts.posts.slice(postsDisplayed, postsDisplayed + 4));
-    // if there are no more posts to display, hide the show more link
-    if (blogPosts.posts.length <= postsDisplayed + 4) {
-      showMoreLink.style.display = 'none';
+// ---------------------------------------------------------------- app install links
+
+// An Install link appears only for apps the AltStore source actually ships.
+fetch('https://apps.illixion.com/source.json')
+  .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
+  .then((source) => {
+    for (const app of source.apps || []) {
+      const row = document.querySelector(`.app[data-bundle="${CSS.escape(app.bundleIdentifier)}"]`);
+      if (!row) continue;
+      const links = row.querySelector('.row-links');
+      const a = document.createElement('a');
+      a.className = 'pill primary';
+      a.href = 'https://apps.illixion.com/';
+      a.textContent = 'Install on iPhone or iPad';
+      const v = document.createElement('span');
+      v.className = 'version';
+      v.textContent = `Version ${app.version}`;
+      links.prepend(a);
+      links.append(v);
     }
-    return false;
+  })
+  .catch(() => {});
+
+// ---------------------------------------------------------------- lightbox
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+
+document.querySelectorAll('[data-lightbox]').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    const thumb = link.querySelector('img');
+    lightboxImg.src = link.getAttribute('href');
+    lightboxImg.alt = thumb ? thumb.alt : link.textContent;
+    lightbox.showModal();
   });
-};
+});
+
+lightbox.querySelector('.close').addEventListener('click', () => lightbox.close());
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.close(); });
+lightbox.addEventListener('close', () => { lightboxImg.removeAttribute('src'); });
+
+// ---------------------------------------------------------------- copy key
+
+document.querySelectorAll('[data-copy-from]').forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    const text = document.getElementById(btn.dataset.copyFrom).textContent;
+    const label = btn.textContent;
+    try {
+      await navigator.clipboard.writeText(text + '\n');
+      btn.textContent = 'Copied';
+    } catch {
+      btn.textContent = 'Copy failed';
+    }
+    setTimeout(() => { btn.textContent = label; }, 1600);
+  });
+});
+
+// ---------------------------------------------------------------- the nose
+
+const boop = new Audio('audio/partyfavorraspypart_ac01_3.mp3');
+document.querySelector('.nose').addEventListener('click', () => {
+  boop.cloneNode().play();
+});
+
+// ---------------------------------------------------------------- offline
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(() => {});
+}
