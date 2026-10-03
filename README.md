@@ -5,8 +5,9 @@ installs as a web app (`site.webmanifest` + `sw.js`) and is split into tabs by `
 Home, Apps, Projects, Art and Keys. Without JavaScript every tab shows, one after another.
 
 - `index.html` holds all five tabs. `js/index.js` switches them, loads recent posts from the
-  blog's `searchindex.json`, and adds an Install link to each app that
-  [apps.illixion.com/source.json](https://apps.illixion.com/source.json) ships.
+  blog's `searchindex.json`, and adds Install and Download IPA links to each app that
+  [apps.illixion.com/source.json](https://apps.illixion.com/source.json) ships. The IPA link is
+  that version's file on the app's own GitHub release.
 - `sw.js` is network-first with a cache fallback. Bump `VERSION` when its shell list changes.
 - Cloudflare lets browsers cache `/js/*` and `/css/*` for 4 hours, but not `/`. After changing
   `css/index.css` or anything in `js/`, bump the `?v=` stamp on them in `index.html`, `404.html`

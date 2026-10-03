@@ -108,7 +108,8 @@ fetch('https://blog.illixion.com/searchindex.json')
 
 // ---------------------------------------------------------------- app install links
 
-// An Install link appears only for apps the AltStore source actually ships.
+// Install and Download links appear only for apps the AltStore source actually ships.
+// downloadURL is that version's IPA on the app's GitHub release, so it matches the label.
 fetch('https://apps.illixion.com/source.json')
   .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
   .then((source) => {
@@ -124,6 +125,13 @@ fetch('https://apps.illixion.com/source.json')
       v.className = 'version';
       v.textContent = `Version ${app.version}`;
       links.prepend(a);
+      if (app.downloadURL) {
+        const ipa = document.createElement('a');
+        ipa.className = 'pill';
+        ipa.href = app.downloadURL;
+        ipa.textContent = 'Download IPA';
+        a.after(ipa);
+      }
       links.append(v);
     }
   })
