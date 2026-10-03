@@ -9,6 +9,7 @@
     --muted: #5A5E72;
     --link: #2D55E0;
     --link-hover: #1438B8;
+    --on-link: #FFFFFF;
     --blob-a: rgba(120, 119, 198, 0.38);
     --blob-b: rgba(255, 119, 198, 0.30);
     --blob-c: rgba(120, 219, 255, 0.34);
@@ -34,6 +35,7 @@
         --muted: #A0A4BA;
         --link: #8FB0FF;
         --link-hover: #BFD1FF;
+        --on-link: #0E0F1A;
         --blob-a: rgba(120, 119, 198, 0.30);
         --blob-b: rgba(214, 90, 170, 0.22);
         --blob-c: rgba(70, 170, 220, 0.22);
@@ -205,8 +207,8 @@ html:not(.js) .tab + .tab { margin-top: 2.5rem; }
     text-decoration: none;
 }
 .pill:hover { background: var(--pill-hover); color: var(--ink); text-decoration: none; }
-.pill.primary { background: var(--link); border-color: transparent; color: #fff; }
-.pill.primary:hover { background: var(--link-hover); color: #fff; }
+.pill.primary { background: var(--link); border-color: transparent; color: var(--on-link); }
+.pill.primary:hover { background: var(--link-hover); color: var(--on-link); }
 
 /* ---------------------------------------------------------------- home */
 
