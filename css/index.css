@@ -230,7 +230,7 @@ html:not(.js) .tabbar a[aria-current="page"] { background: var(--pill-hover); }
 
 .avatar {
     position: relative;
-    width: 9.5rem;
+    width: 12rem;
     margin: 0 auto 0.875rem;
 }
 .avatar img {
@@ -249,7 +249,7 @@ html:not(.js) .tabbar a[aria-current="page"] { background: var(--pill-hover); }
     border: 0;
     border-radius: 50%;
     background: transparent;
-    cursor: pointer;
+    cursor: help;
 }
 
 .handle { color: var(--muted); margin-top: 0.125rem; }
