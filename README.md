@@ -14,7 +14,8 @@ Home, Apps, Projects, Art and Keys. Without JavaScript every tab shows, one afte
   and `sw.js`. Otherwise returning visitors get the new HTML with the old script and styles.
 - `_headers` sets a strict CSP (no inline scripts or styles). Analytics is self-hosted Umami at
   `stats.illixion.com` (on servo), tagged in `index.html` and `404.html`; `js/index.js` counts
-  tab switches as pageviews. Cloudflare Web Analytics stays allowed during the parallel run;
+  tab switches as pageviews, and `js/engaged.js` sends an `engaged` event after 10 s visible
+  plus real input (the same file is copied into the blog, apps and apparition sites). Cloudflare Web Analytics stays allowed during the parallel run;
   drop it from the CSP once its beacon is turned off in the Pages project's settings.
 
 ## Keys
