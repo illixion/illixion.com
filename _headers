@@ -2,7 +2,7 @@
   Permissions-Policy: interest-cohort=(), geolocation=(), microphone=(), camera=()
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self' https://blog.illixion.com https://apps.illixion.com https://cloudflareinsights.com; frame-src https://github.com; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://stats.illixion.com; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self' https://blog.illixion.com https://apps.illixion.com https://cloudflareinsights.com https://stats.illixion.com; frame-src https://github.com; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
 
 https://illixion.pages.dev/*
   X-Robots-Tag: noindex

@@ -1,14 +1,14 @@
 // Network first, cache as the fallback, so a deploy is visible on the next load and the
 // installed app still opens offline. Bump VERSION when the shell list changes, including
 // the ?v= asset stamp it mirrors from index.html.
-const VERSION = 'v4';
+const VERSION = 'v5';
 const CACHE = `ixion-${VERSION}`;
 const SHELL = [
   '/',
   '/index.html',
-  '/css/index.css?v=4',
-  '/js/early.js?v=4',
-  '/js/index.js?v=4',
+  '/css/index.css?v=5',
+  '/js/early.js?v=5',
+  '/js/index.js?v=5',
   '/images/illixion.jpg',
   '/images/apps/convolution.png',
   '/images/apps/longwave.png',

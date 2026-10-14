@@ -53,7 +53,12 @@ function showTab(id) {
   window.scrollTo(0, 0);
 }
 
-window.addEventListener('hashchange', () => showTab(location.hash.slice(1)));
+// Tabs switch on the hash, which Umami's auto-tracking (history API only) doesn't see, so
+// count each switch as a pageview. The initial tab is covered by its automatic one.
+window.addEventListener('hashchange', () => {
+  showTab(location.hash.slice(1));
+  window.umami?.track();
+});
 window.addEventListener('resize', moveIndicator);
 showTab(location.hash.slice(1));
 // Turn the indicator's transition on only after it has been placed, so it doesn't fly in on load.

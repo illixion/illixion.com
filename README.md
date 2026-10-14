@@ -12,8 +12,10 @@ Home, Apps, Projects, Art and Keys. Without JavaScript every tab shows, one afte
 - Cloudflare lets browsers cache `/js/*` and `/css/*` for 4 hours, but not `/`. After changing
   `css/index.css` or anything in `js/`, bump the `?v=` stamp on them in `index.html`, `404.html`
   and `sw.js`. Otherwise returning visitors get the new HTML with the old script and styles.
-- `_headers` sets a strict CSP (no inline scripts or styles). Cloudflare Web Analytics is
-  allowed in it; turn it on in the Pages project's settings, which injects the beacon.
+- `_headers` sets a strict CSP (no inline scripts or styles). Analytics is self-hosted Umami at
+  `stats.illixion.com` (on servo), tagged in `index.html` and `404.html`; `js/index.js` counts
+  tab switches as pageviews. Cloudflare Web Analytics stays allowed during the parallel run;
+  drop it from the CSP once its beacon is turned off in the Pages project's settings.
 
 ## Keys
 
